@@ -1,27 +1,30 @@
-@extends('_header')
+
+@include('layouts.header')
 
 @section('content')
-    <h2 class="text-2xl font-bold mb-4">Book List</h2>
-    <table class="table-auto w-full">
+    <h1>Book List</h1>
+    <table>
         <thead>
             <tr>
-                <th class="px-4 py-2">Title</th>
-                <th class="px-4 py-2">Author</th>
-                <th class="px-4 py-2">ISBN</th>
-                <th class="px-4 py-2">Date Published</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Date Published</th>
             </tr>
         </thead>
         <tbody>
             @foreach($books as $book)
                 <tr>
-                    <td class="px-4 py-2">{{ $book->title }}</td>
-                    <td class="px-4 py-2">{{ $book->author }}</td>
-                    <td class="px-4 py-2">{{ $book->isbn }}</td>
-                    <td class="px-4 py-2">{{ $book->date_published }}</td>
+                    <td>{{ $book->isbn }}</td>
+                    <td>{{ $book->title }}</td>
+                    <td>{{ $book->author }}</td>
+                    <td>{{ $book->description }}</td>
+                    <td>{{ $book->published_at }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 @endsection
 
-@include('_footer')
+@include('layouts.footer')
