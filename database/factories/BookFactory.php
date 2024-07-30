@@ -17,11 +17,11 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'isbn' => $this->faker->isbn13(),
-            'title' => $this->faker->sentence(),
-            'author' => $this->faker->name(),
-            'description' => $this->faker->paragraph(),
-            'date_published' => $this->faker->date(),
+            'isbn' => rand(0,1) ? fake()->isbn10() : fake()->isbn13(),
+            'title' => ucfirst(fake()->words(rand(1, 5), true)),
+            'author' => fake()->name(),
+            'description' => fake()->paragraph(2),
+            'date_published' => fake()->date(),
         ];
     }
 }

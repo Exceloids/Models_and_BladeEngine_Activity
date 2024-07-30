@@ -1,30 +1,32 @@
 
 @include('layouts.header')
 
-@section('content')
-    <h1>Book List</h1>
-    <table>
-        <thead>
+<div class="container mx-auto p-8">
+    <table class="table-auto w-full font-serif text-sm text-left rtl:text-right">
+        <thead class="uppercase">
             <tr>
-                <th>ISBN</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Description</th>
-                <th>Date Published</th>
+                <th class="px-4 py-2 border border-gray-300">ID</th>
+                <th class="px-4 py-2 border border-gray-300">ISBN</th>
+                <th class="px-4 py-2 border border-gray-300">Title</th>
+                <th class="px-4 py-2 border border-gray-300">Author</th>
+                <th class="px-4 py-2 border border-gray-300">Description</th>
+                <th class="px-4 py-2 border border-gray-300">Date Published</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($books as $book)
+            @foreach ($books as $book)
                 <tr>
-                    <td>{{ $book->isbn }}</td>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->author }}</td>
-                    <td>{{ $book->description }}</td>
-                    <td>{{ $book->published_at }}</td>
+                    <td class="px-4 py-2 border border-gray-300">{{ $book->id }}</td>
+                    <td class="px-4 py-2 border border-gray-300 font-bold">{{ $book->isbn }}</td>
+                    <td class="px-4 py-2 border border-gray-300">{{ $book->title }}</td>
+                    <td class="px-4 py-2 border border-gray-300 italic">{{ $book->author }}</td>
+                    <td class="px-4 py-2 border border-gray-300">{{ $book->description }}</td>
+                    <td class="px-4 py-2 border border-gray-300">{{ $book->date_published }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-@endsection
+</div>
+
 
 @include('layouts.footer')

@@ -13,7 +13,7 @@ class CreateBooksTable extends Migration
             $table->string('isbn');
             $table->string('title');
             $table->string('author');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->date('date_published');
             $table->timestamps();
         });
