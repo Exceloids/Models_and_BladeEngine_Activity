@@ -17,11 +17,11 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'isbn' => $this->faker->isbn13(),
+            'title' => $this->faker->sentence(),
+            'author' => $this->faker->name(),
+            'description' => $this->faker->paragraph(),
+            'date_published' => $this->faker->date(),
         ];
     }
 }
